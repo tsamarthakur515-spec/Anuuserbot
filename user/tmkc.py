@@ -1,7 +1,7 @@
 import asyncio
 from telethon import errors
 
-async def aru_handle(client, event):
+async def tmkc_handle(client, event):
     # try to delete the command message (force)
     try:
         await client.delete_messages(event.chat_id, [event.message.id])
@@ -30,8 +30,8 @@ async def aru_handle(client, event):
             "            \\              (\n"
             "              \\--------------\n"
             "               ))))))))))))\n"
-            "ғᴜᴍᴋᴇᴅ ʙʏ :- <a href='http://t.me/MANIAC_USR_BOT'>[ ˹sᴜʀᴜᴄʜɪ × ɴᴇᴛᴡᴏʀᴋ˼ ]</a>\n"
-            "𝗢𝗪𝗡𝗘𝗥 @ll_Sexcy_Samar_ll\n"
+            "ғᴜᴍᴋᴇᴅ ʙʏ :- <a href='https://t.me/suruchisupport'>[ ˹sᴜʀᴜᴄʜɪ × ɴᴇᴛᴡᴏʀᴋ˼ ]</a>\n"
+            "ᴏᴡɴᴇʀ:-  @ll_Sexcy_Samar_ll\n"
         )
     ]
 
