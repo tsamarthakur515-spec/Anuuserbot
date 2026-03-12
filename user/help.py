@@ -1,19 +1,18 @@
 import asyncio
 
 async def help_handle(client, event):
-    # ✅ Delete the .help command message
+    # Delete the .help command message
     try:
         await event.delete()
     except:
         pass
 
-    # 🍼 First short animation before showing help
-    x = await event.respond("**ᴄᴏᴍɪɴɢ ʙᴀʙʏ....**")  # ✅ Fixed missing **
-    await asyncio.sleep(0.2)  # wait a bit longer before editing
+    # Small animation message
+    x = await event.respond("**ᴄᴏᴍɪɴɢ ʙᴀʙʏ....**")
+    await asyncio.sleep(0.2)
 
-    # 📜 Full Help Menu (Quoted Commands)
-    help_text = (
-        HELP_TEXT = """```
+    # Help Menu
+    help_text = """```
 🤖 𝐒𝐔𝐑𝐔𝐂𝐇𝐈 𝗨𝗦𝗘𝗥𝗕𝗢𝗧 𝗛𝗘𝗟𝗣 𝗠𝗘𝗡𝗨
 
 𝗔𝗩𝗔𝗜𝗟𝗔𝗕𝗟𝗘 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦
@@ -37,10 +36,8 @@ async def help_handle(client, event):
 > `.wtf`
 
 𝗦𝗨𝗣𝗣𝗢𝗥𝗧
-𝗖𝗛𝗔𝗡𝗡𝗘𝗟: @suruchisupport  
+𝗖𝗛𝗔𝗡𝗡𝗘𝗟: @suruchisupport
 𝗢𝗪𝗡𝗘𝗥: @ll_Sexcy_Samar_ll
 ```"""
-    )
 
     await x.edit(help_text)
-
