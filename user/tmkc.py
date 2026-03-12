@@ -31,49 +31,64 @@ async def tmkc_handle(client, event):
             "              \\--------------\n"
             "               ))))))))))))\n"
             "ғᴜᴍᴋᴇᴅ ʙʏ :- <a href='https://t.me/suruchisupport'>[ ˹sᴜʀᴜᴄʜɪ × ɴᴇᴛᴡᴏʀᴋ˼ ]</a>\n"
-            "ᴏᴡɴᴇʀ:-  @ll_Sexcy_Samar_ll\n"
+            "ᴏᴡɴᴇʀ :-  <a href='https://t.me/ll_Sexcy_Samar_ll'> [ ᴀs sᴀᴍᴀʀ ]</a>\n"
         )
     ]
 
     if not messages:
         return
 
-    # send the first message (so we have a clean Message object to edit)
+    # send the first message
     try:
-        msg_obj = await client.send_message(event.chat_id, messages[0])
+        msg_obj = await client.send_message(
+            event.chat_id,
+            messages[0],
+            parse_mode="html"
+        )
     except Exception as e:
         print(f"❌ Failed to send initial message: {e}")
         return
 
-    base_delay = 0.1  # safe default (0.7-1.0); increase if edits still stop
+    base_delay = 0.1
 
-    # loop edits starting from the second element (0 already sent)
+    # loop edits
     for i in range(1, len(messages)):
         text = messages[i]
+
         try:
-            await msg_obj.edit(text)
+            await msg_obj.edit(
+                text,
+                parse_mode="html"
+            )
             print(f"✏️ Edited step {i}: {text[:30]}...")
+
         except errors.MessageNotModifiedError:
-            # if the text is same as current, just continue
             print(f"ℹ️ Step {i} text not modified; skipping.")
+
         except errors.MessageIdInvalidError:
-            # can't edit (maybe message lost) -> fallback to sending new message and continue
-            print(f"⚠️ MessageIdInvalid at step {i}, sending new message as fallback.")
+            print(f"⚠️ MessageIdInvalid at step {i}, sending new message.")
             try:
-                msg_obj = await client.send_message(event.chat_id, text)
+                msg_obj = await client.send_message(
+                    event.chat_id,
+                    text,
+                    parse_mode="html"
+                )
             except Exception as e:
                 print(f"❌ Fallback send failed at step {i}: {e}")
                 return
+
         except Exception as e:
-            # other errors -> try to recover by sending a fresh message
-            print(f"⚠️ Edit failed at step {i}: {e}. Attempting to send new message.")
+            print(f"⚠️ Edit failed at step {i}: {e}")
             try:
-                msg_obj = await client.send_message(event.chat_id, text)
+                msg_obj = await client.send_message(
+                    event.chat_id,
+                    text,
+                    parse_mode="html"
+                )
             except Exception as ex:
                 print(f"❌ Fallback send failed at step {i}: {ex}")
                 return
 
-        # longer pause before the final big ASCII art for readability
         if i == len(messages) - 1:
             await asyncio.sleep(0.1)
         else:
