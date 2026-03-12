@@ -14,7 +14,7 @@ from user.drraid import drraid_handle
 from user.raid import raid_handle
 from user.help import help_handle
 from user.info import info_handle
-from user.aru import aru_handle
+from user.tmkc import aru_handle
 from user.markdown import markdown_handle
 from user.rraid import rraid_handle
 from user.ban import ban_handle, unban_handle
@@ -29,9 +29,9 @@ def register(client):
     await revert_user(client, event)
 
 
-  @client.on(events.NewMessage(outgoing=True, pattern=r'^\.(aru)(?:\s+(.*))?$'))
+  @client.on(events.NewMessage(outgoing=True, pattern=r'^\.(tmkc)(?:\s+(.*))?$'))
   async def marco(event):
-    await aru_handle(client, event)
+    await tmkc_handle(client, event)
 
   @client.on(events.NewMessage(outgoing=True, pattern=r'^\.markdown(?:\s+(.*))?$'))
   async def markdown_handle(event):
