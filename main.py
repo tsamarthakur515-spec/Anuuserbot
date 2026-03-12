@@ -42,7 +42,11 @@ async def start_web():
         try:
             site = web.TCPSite(runner, "0.0.0.0", PORT)
             await site.start()
-            print(f"🌍 Web server started on port {PORT}")
+            print(f"---------------------------------
+                    
+                           SAMAR THAKUR LOADED
+                    
+                    ---------------------------------")
             return runner
         except OSError as e:
             if e.errno == 98:  # Address already in use
