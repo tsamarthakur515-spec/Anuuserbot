@@ -14,7 +14,7 @@ from user.drraid import drraid_handle
 from user.raid import raid_handle
 from user.help import help_handle
 from user.info import info_handle
-from user.tmkc import aru_handle
+from user.tmkc import tmkc_handle
 from user.markdown import markdown_handle
 from user.rraid import rraid_handle
 from user.ban import ban_handle, unban_handle
