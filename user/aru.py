@@ -30,7 +30,7 @@ async def aru_handle(client, event):
             "            \\              (\n"
             "              \\--------------\n"
             "               ))))))))))))\n"
-            "ғᴜᴍᴋᴇᴅ ʙʏ :- [ ˹sᴜʀᴜᴄʜɪ × ɴᴇᴛᴡᴏʀᴋ˼ ]\n"
+            "ғᴜᴍᴋᴇᴅ ʙʏ :- <a href='http://t.me/MANIAC_USR_BOT'>[ ˹sᴜʀᴜᴄʜɪ × ɴᴇᴛᴡᴏʀᴋ˼ ]</a>\n"
             "𝗢𝗪𝗡𝗘𝗥 @ll_Sexcy_Samar_ll\n"
         )
     ]
